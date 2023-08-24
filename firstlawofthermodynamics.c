@@ -16,9 +16,9 @@ int findUnknownParameter(system_body body)
     int check = 0;
     if (body.change_in_heat == NULL) // If change_in_heat is not provided then value of check will increase
         check++;
-    else if (body.change_in_internal_energy == NULL) // If change_in_internal_energy is not provided then value of check will increase
+    if (body.change_in_internal_energy == NULL) // If change_in_internal_energy is not provided then value of check will increase
         check++;
-    else if (body.work_done == NULL) // If work_done is not provided then value of check will increase
+    if (body.work_done == NULL) // If work_done is not provided then value of check will increase
         check++;
 
     // If more than one parameter is missing value of check will become 2 or more & we will exit the program
@@ -50,9 +50,9 @@ int main()
     int del_internal_energy = 34; // Define the change in internal energy
     int del_heat = 22;            // Define the change in heat
 
-    system_body body_one = default_system_body;                // Create a system_body object and initialize it with default values
-    body_one.change_in_heat = &del_heat;                       // Assign the address of del_heat to change_in_heat pointer
-    body_one.change_in_internal_energy = &del_internal_energy; // Assign the address of del_internal_energy to change_in_internal_energy pointer
+    system_body body_one = default_system_body; // Create a system_body object and initialize it with default values
+    body_one.change_in_heat = &del_heat;        // Assign the address of del_heat to change_in_heat pointer
+    // body_one.change_in_internal_energy = &del_internal_energy; // Assign the address of del_internal_energy to change_in_internal_energy pointer
 
     printf("%d", findUnknownParameter(body_one)); // Call the findUnknownParameter function with body_one as argument and print the result
 
