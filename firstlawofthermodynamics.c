@@ -50,11 +50,20 @@ int main()
     int del_internal_energy = 34; // Define the change in internal energy
     int del_heat = 22;            // Define the change in heat
 
-    system_body body_one = default_system_body; // Create a system_body object and initialize it with default values
-    body_one.change_in_heat = &del_heat;        // Assign the address of del_heat to change_in_heat pointer
-    // body_one.change_in_internal_energy = &del_internal_energy; // Assign the address of del_internal_energy to change_in_internal_energy pointer
+    system_body body_one = default_system_body;                // Create a system_body object and initialize it with default values
+    body_one.change_in_heat = &del_heat;                       // Assign the address of del_heat to change_in_heat pointer
+    body_one.change_in_internal_energy = &del_internal_energy; // Assign the address of del_internal_energy to change_in_internal_energy pointer
 
-    printf("%d", findUnknownParameter(body_one)); // Call the findUnknownParameter function with body_one as argument and print the result
+    printf("work done : %d\n", findUnknownParameter(body_one)); // Call the findUnknownParameter function with body_one as argument and print the result
+
+    int del_heat_2 = 39;
+    int work_done_2 = -25;
+
+    system_body body_two = default_system_body;
+    body_two.change_in_heat = &del_heat_2;
+    body_two.work_done = &work_done_2;
+
+    printf("change in internal energy : %d\n", findUnknownParameter(body_two));
 
     return 0; // Return 0 to indicate successful execution of the program
 }
