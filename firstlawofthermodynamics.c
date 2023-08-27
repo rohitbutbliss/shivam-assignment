@@ -54,7 +54,7 @@ int main()
     body_one.change_in_heat = &del_heat;                       // Assign the address of del_heat to change_in_heat pointer
     body_one.change_in_internal_energy = &del_internal_energy; // Assign the address of del_internal_energy to change_in_internal_energy pointer
 
-    printf("work done : %d\n", findUnknownParameter(body_one)); // Call the findUnknownParameter function with body_one as argument and print the result
+    // printf("work done : %d\n", findUnknownParameter(body_one)); // Call the findUnknownParameter function with body_one as argument and print the result
 
     int del_heat_2 = 39;
     int work_done_2 = -25;
@@ -63,7 +63,14 @@ int main()
     body_two.change_in_heat = &del_heat_2;
     body_two.work_done = &work_done_2;
 
-    printf("change in internal energy : %d\n", findUnknownParameter(body_two));
+    system_body systemBodyArr[] = {body_one, body_two};
+
+    int length_of_array = sizeof(systemBodyArr) / sizeof(system_body);
+
+    for (int i = 0; i < length_of_array; i++)
+        printf("%d\n", findUnknownParameter(systemBodyArr[i]));
+
+    // printf("change in internal energy : %d\n", findUnknownParameter(body_two));
 
     return 0; // Return 0 to indicate successful execution of the program
 }
