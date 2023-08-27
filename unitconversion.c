@@ -2,9 +2,9 @@
 #include <stdlib.h>
 
 // Function to convert temperature from Celsius to Fahrenheit
-double convertCelsiusToFahrenheit(double celciusTemperature)
+double convertCelsiusToFahrenheit(double celsiusTemperature)
 {
-    return (celciusTemperature * 9 / 5.0) + 32;
+    return (celsiusTemperature * 9 / 5.0) + 32;
 }
 
 // Function to convert temperature from Fahrenheit to Celsius
